@@ -1,4 +1,4 @@
-import chatUser from "../models/user.model.js";
+import chatUser from "../models/chatUser.model.js";
 import bcrypt from "bcryptjs";
 import generateJWTToken from "../utils/generateJWTToken.js";
 
