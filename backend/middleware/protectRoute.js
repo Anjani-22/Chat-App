@@ -1,13 +1,13 @@
 import jwt from "jsonwebtoken";
 import chatUser from "../models/chatUser.model.js";
 
-const protectRoute = async (req, next, res) => {
+const protectRoute = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;
     if (!token)
       res.status(401).json({ error: "Unauthorized No token provided" });
 
-    const decoded = jwt.verify(token, process.env.JWTSECRETROUTE);
+    const decoded = jwt.verify(token, process.env.JWTSECRETKEY);
 
     if (!decoded) res.status(401).json({ error: "Unauthirzed Invalid token" });
 
@@ -19,7 +19,7 @@ const protectRoute = async (req, next, res) => {
 
     next();
   } catch (error) {
-    console.log("protectedRoute", error.message);
+    console.log("protectRoute", error.message);
     res.status(500).json({ error: "Internal Server error" });
   }
 };
