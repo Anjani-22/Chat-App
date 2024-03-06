@@ -4,7 +4,7 @@
 
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/bg.png");
+    url("/evening-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -29,11 +29,18 @@ body {
 }
 
 /* SHAKE ANIMATION ON HORIZONTAL DIRECTION */
+.form-labels-text-color > div > label > span {
+  color: white;
+}
 .shake {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.2s both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+.label-text {
+  color: aliceblue;
 }
 
 @keyframes shake {
