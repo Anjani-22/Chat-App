@@ -61,12 +61,12 @@ export const login = async (req, res) => {
     const { username, password } = req.body;
 
     const user = await chatUser.findOne({ username });
-    console.log(user);
+
     const isPasswordCorrect = await bcrypt.compare(
       password,
       user?.password || ""
     );
-    console.log("😎", password, isPasswordCorrect);
+
     if (!user || !isPasswordCorrect) {
       return res.status(400).json({ error: "invalid user or password" });
     }
